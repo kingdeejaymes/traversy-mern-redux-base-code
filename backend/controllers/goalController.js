@@ -6,7 +6,7 @@ const User = require('../models/userModel')
 // @desc    Get goals
 // @route   GET /api/goals
 // @access  Private
-const getGoals = asyncHandler(async (req, res) => {
+exports.getGoals = asyncHandler(async (req, res) => {
   const goals = await Goal.find({ user: req.user.id })
 
   res.status(200).json(goals)
@@ -15,7 +15,7 @@ const getGoals = asyncHandler(async (req, res) => {
 // @desc    Set goal
 // @route   POST /api/goals
 // @access  Private
-const setGoal = asyncHandler(async (req, res) => {
+exports.setGoal = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400)
     throw new Error('Please add a text field')
@@ -32,7 +32,7 @@ const setGoal = asyncHandler(async (req, res) => {
 // @desc    Update goal
 // @route   PUT /api/goals/:id
 // @access  Private
-const updateGoal = asyncHandler(async (req, res) => {
+exports.updateGoal = asyncHandler(async (req, res) => {
   const goal = await Goal.findById(req.params.id)
 
   if (!goal) {
@@ -62,7 +62,7 @@ const updateGoal = asyncHandler(async (req, res) => {
 // @desc    Delete goal
 // @route   DELETE /api/goals/:id
 // @access  Private
-const deleteGoal = asyncHandler(async (req, res) => {
+exports.deleteGoal = asyncHandler(async (req, res) => {
   const goal = await Goal.findById(req.params.id)
 
   if (!goal) {
@@ -86,10 +86,3 @@ const deleteGoal = asyncHandler(async (req, res) => {
 
   res.status(200).json({ id: req.params.id })
 })
-
-module.exports = {
-  getGoals,
-  setGoal,
-  updateGoal,
-  deleteGoal,
-}
