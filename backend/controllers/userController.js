@@ -38,7 +38,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id),
+      token: getToken(user._id),
     })
   } else {
     res.status(400)
@@ -73,6 +73,32 @@ exports.loginUser = asyncHandler(async (req, res) => {
 // @access  Private
 exports.getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user)
+})
+
+// @desc    Update user profile
+// @route   PUT /api/users/:id
+// @access  Private
+exports.updateProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id)
+
+  console.log('Request Body UPDATE ===> ', req.body);
+
+  if (!user) {
+    res.status(400)
+    throw new Error('User not found in the database')
+  }
+
+  // Check for user details that needs to be updated
+  if (!req.body) {
+    res.status(404)
+    throw new Error('User not in the request')
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+    new: true, // create if non-existent
+  })
+
+  res.status(200).json(updatedUser)
 })
 
 // Generate JWT

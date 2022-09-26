@@ -10,6 +10,7 @@ const userCtrl = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware')
 
 router.post('/', userCtrl.registerUser)
+router.put('/:id', protect, userCtrl.updateProfile)
 router.post('/login', userCtrl.loginUser)
 router.get('/me', protect, userCtrl.getMe)
 
