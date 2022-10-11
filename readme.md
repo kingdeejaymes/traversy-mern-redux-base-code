@@ -1,45 +1,39 @@
-# Goalsetter MERN app by Traversy Media
+# Running the Docker
 
-This is the goalsetter app from the [Learn the MERN Stack](https://www.youtube.com/watch?v=-0exw-9YJBo) series on YouTube.
+REF - https://www.bezkoder.com/docker-mern/
 
-These includes:
+## Pre-Requisite: Install Docker https://docs.docker.com/get-docker/
 
-BACKEND
- - mongoose
- - bcryptjs (for password encryption/decryptions)
- - json webtokens
- - concurrently for running both backend and frontend
- 
- FRONTEND
- - react-redux
- - reduxjs-toolkit
- - react-icons
- - react-toastify
- - axios
 
-## Usage
-
-Setup the .env and add your MONGO_URI
-
-### Install dependencies
+### Check if there is running containers
 
 ```
-# Backend deps: on root folder
-npm install
-
-# Frontend deps
-cd frontend
-npm install
+docker ps -a
 ```
 
-### Run Server
+### Check if there is active images
 
 ```
-npm run server
+docker images
 ```
 
-### Or Run Backend and Front End Concurrently
+### Run and activate images using docker compose
 
 ```
-npm run dev
+docker-compose up -d
 ```
+
+### Stop images using docker compose
+
+```
+docker-compose down
+```
+
+### Remove/Delete images, containers and volumes using docker compose
+
+```
+docker-compose down --rmi all
+```
+
+## Update the `frontend-ui` ports, use port `80` on `docker-compose.yml` if running NGINX
+
