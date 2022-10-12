@@ -35,6 +35,45 @@ docker-compose down
 docker-compose down --rmi all -v
 ```
 
+## Pushing ang Pulling images to Docker Hub: https://hub.docker.com/
+Make sure to register first on Docker Hub and Create a repository
+
+
+1. Create image first: `docker build -t <REPOSITORY_NAME>:<TAG_NAME> .`
+```
+cd backend
+
+docker build -t kingdeej/mern-redux-toolkit:backend_img_traversy .
+```
+
+2. Check if the image is created
+```
+docker images
+```
+
+3. Push to repository
+
+```
+docker push kingdeej/mern-redux-toolkit:backend_img_traversy
+```
+
+4. The check on the site if uploaded: https://hub.docker.com/repository/docker/kingdeej/mern-redux-toolkit
+
+OPTIONAL: How to delete Existing Images:
+
+```
+docker images (to check the IMAGE_ID)
+docker image rm <IMAGE_ID>
+```
+
+5. Pulling
+
+```
+docker pull kingdeej/mern-redux-toolkit:backend_img_traversy
+```
+
+6. Repeat steps for Frontend
+
 ### Few Notes:
 
 Update the `frontend-ui` ports, use port `80` on `docker-compose.yml` if running NGINX
