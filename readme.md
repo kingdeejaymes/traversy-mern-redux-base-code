@@ -3,7 +3,9 @@
 REFERRENCES:
 
 https://www.bezkoder.com/docker-mern/
+
 https://www.youtube.com/watch?v=hP77Rua1E0c
+
 https://www.youtube.com/watch?v=31ieHmcTUOk&list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7&index=2
 
 ## Pre-Requisite: Install Docker https://docs.docker.com/get-docker/
