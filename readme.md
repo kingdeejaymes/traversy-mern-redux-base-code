@@ -3,6 +3,8 @@
 ## Pre-Requisite: Install Docker https://docs.docker.com/get-docker/
 
 
+NOTE: Make sure you are in the root folder. Outside `backend` and `frontend` dir
+
 ### Check if there is running containers
 
 ```
