@@ -1,4 +1,4 @@
-# Goalsetter MERN app by Traversy Media
+# Goalsetter CRUD app (MERN and REDUX Base Code)
 
 Check `dockerized` branch for dockerized code version
 
